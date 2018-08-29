@@ -21,15 +21,6 @@ public class PlayerMovement : MonoBehaviour {
     {
         float horizontalSpeed;
 
-        if (rgb.velocity.y != 0)
-        {
-            isGrounded = false;
-        }
-        else
-        {
-            isGrounded = true;
-        }
-
         switch(playerNum)
         {
             case 1:
@@ -53,4 +44,14 @@ public class PlayerMovement : MonoBehaviour {
                 break;
         }
 	}
+
+    void OnTriggerEnter(Collider other)
+    {
+        isGrounded = true;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        isGrounded = false;
+    }
 }
