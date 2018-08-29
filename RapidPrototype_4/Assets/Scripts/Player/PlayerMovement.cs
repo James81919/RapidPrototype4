@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     public int playerNum;
 
     public float movementSpeed;
+    public float airControlSpeed;
     public float jumpHeight;
 
     private Rigidbody rgb;
@@ -24,21 +25,26 @@ public class PlayerMovement : MonoBehaviour {
         switch(playerNum)
         {
             case 1:
-                horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
-                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
-                if (Input.GetKey(KeyCode.Space) && isGrounded)
                 {
-                    rgb.AddForce(Vector3.up * jumpHeight);
+                    horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
+                    rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+
+                    if (Input.GetKey(KeyCode.Space) && isGrounded)
+                    {
+                        rgb.AddForce(Vector3.up * jumpHeight);
+                    }
+                    break;
                 }
-                break;
             case 2:
-                horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
-                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
-                if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
                 {
-                    rgb.AddForce(Vector3.up * jumpHeight);
+                    horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
+                    rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+                    if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
+                    {
+                        rgb.AddForce(Vector3.up * jumpHeight);
+                    }
+                    break;
                 }
-                break;
             default:
                 Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
                 break;

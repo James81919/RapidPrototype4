@@ -423,6 +423,11 @@ Prefab:
       propertyPath: m_AngularDrag
       value: 0.05
       objectReference: {fileID: 0}
+    - target: {fileID: 114780307726018200, guid: e755112624b7d3a4e87e59532e60c03c,
+        type: 2}
+      propertyPath: airControlSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e755112624b7d3a4e87e59532e60c03c, type: 2}
   m_IsPrefabAsset: 0
