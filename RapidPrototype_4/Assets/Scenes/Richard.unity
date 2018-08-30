@@ -1088,6 +1088,28 @@ Prefab:
       propertyPath: m_raisingAmount
       value: 0.001
       objectReference: {fileID: 0}
+    - target: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
+        type: 2}
+      propertyPath: m_loweringMultipler
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
+        type: 2}
+      propertyPath: m_shouldRaised
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1997168072173642, guid: 1d9d28193ab14174697046fd65ea623a, type: 2}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 1383245544130398, guid: 1d9d28193ab14174697046fd65ea623a, type: 2}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 1996993528324404, guid: 1d9d28193ab14174697046fd65ea623a, type: 2}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d9d28193ab14174697046fd65ea623a, type: 2}
   m_IsPrefabAsset: 0

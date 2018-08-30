@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33379268433224834}
   - component: {fileID: 23024464572002650}
   - component: {fileID: 65429599187329760}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: WaterTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4765316819841344}
   - component: {fileID: 33578241445280502}
   - component: {fileID: 23274293217349392}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: TranspWater
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4238819055027180}
   - component: {fileID: 114658725489704556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,3 +212,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_startingLocation: {x: 0, y: 0, z: 0}
   m_raisingAmount: 0
+  m_loweringMultipler: 0
+  m_shouldRaised: 0
