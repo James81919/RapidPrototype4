@@ -49,6 +49,13 @@ public class PlayerMovement : MonoBehaviour {
                 Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
                 break;
         }
+
+        RaycastHit hit;
+
+        if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
+        {
+            rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
+        }
 	}
 
     void OnTriggerEnter(Collider other)
