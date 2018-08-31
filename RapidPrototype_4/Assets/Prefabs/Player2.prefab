@@ -23,14 +23,44 @@ GameObject:
   - component: {fileID: 23900108678474812}
   - component: {fileID: 54349381515663398}
   - component: {fileID: 114230260868859560}
+  - component: {fileID: 114923883994144648}
   - component: {fileID: 136929319138833942}
-  m_Layer: 9
+  - component: {fileID: 135048787973282092}
+  m_Layer: 0
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1964625373362284
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4098754444427012}
+  m_Layer: 0
+  m_Name: FirePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4098754444427012
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1964625373362284}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.8, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4481562270720300}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4481562270720300
 Transform:
   m_ObjectHideFlags: 1
@@ -38,9 +68,10 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402514758107018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: -1.48, z: 0}
+  m_LocalPosition: {x: 3.5, y: 2.41, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
-  m_Children: []
+  m_Children:
+  - {fileID: 4098754444427012}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -114,14 +145,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 2
   movementSpeed: 5
-  jumpHeight: 300
+  jumpHeight: 8
+--- !u!114 &114923883994144648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402514758107018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8b0608eddc5734ab916e93c9a129eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: 266
+  firepoint: {fileID: 1964625373362284}
+  objectfire: {fileID: 1296360558852574, guid: ca87a307527a8144c9edd7c84894c16b, type: 2}
+  firespeed: 500
+--- !u!135 &135048787973282092
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1402514758107018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: -0.56, z: 0}
 --- !u!136 &136929319138833942
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402514758107018}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: a4e4b2474e5c3e249bc9aed2c1debc4d, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
