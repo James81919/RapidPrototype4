@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         isGrounded = true;
     }
