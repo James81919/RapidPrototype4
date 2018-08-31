@@ -14,25 +14,36 @@ public class Shoot : MonoBehaviour {
     public float firespeed;
 
     private int playerNum;
+    private Vector3 firePointPos;
 
     private void Start()
     {
         playerNum = GetComponent<PlayerMovement>().playerNum;
+        firePointPos = firepoint.transform.localPosition;
     }
 
     // Update is called once per frame
-    void Update () {
-
+    void Update ()
+    {
         if (Input.GetKeyDown(key))
         {
-            if (playerNum == 1 && Input.GetKeyDown(KeyCode.S)
-                || playerNum == 2 && Input.GetKeyDown(KeyCode.DownArrow))
+            if (playerNum == 1 && Input.GetKey(KeyCode.S)
+                || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
-                GameObject trash = Instantiate(objectfire, new Vector3(0,0,0) , Quaternion.identity) as GameObject;
+                firepoint.transform.localPosition = new Vector3(0, -1, 0);
+                GameObject trash = Instantiate(objectfire, firepoint.transform.position, Quaternion.identity) as GameObject;
                 trash.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
+            }
+            else if (playerNum == 1 && Input.GetKey(KeyCode.W)
+                || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
+            {
+                firepoint.transform.localPosition = new Vector3(1, 1, 0);
+                GameObject trash = Instantiate(objectfire, firepoint.transform.position, Quaternion.identity) as GameObject;
+                trash.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
             }
             else
             {
+                firepoint.transform.localPosition = firePointPos;
                 GameObject trash = Instantiate(objectfire, firepoint.transform.position, Quaternion.identity) as GameObject;
                 trash.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
             }
