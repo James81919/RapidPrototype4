@@ -1,8 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
+
+    public bool isAlive;
 
     public int playerNum;
 
@@ -15,62 +18,70 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         rgb = GetComponent<Rigidbody>();
+        isAlive = true;
     }
 
 	void FixedUpdate ()
     {
-        float horizontalSpeed;
-
-        switch(playerNum)
+        if (isAlive)
         {
-            case 1:
-                {
-                    // Moving
-                    horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
-                    rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+            float horizontalSpeed;
 
-                    // Jumping
-                    if (Input.GetKey(KeyCode.Space) && isGrounded)
+            switch (playerNum)
+            {
+                case 1:
                     {
-                        rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                        isGrounded = false;
-                    }
-                    break;
-                }
-            case 2:
-                {
-                    // Moving
-                    horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
-                    rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+                        // Moving
+                        horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
+                        rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
 
-                    // Jumping
-                    if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
+                        // Jumping
+                        if (Input.GetKey(KeyCode.Space) && isGrounded)
+                        {
+                            rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                            isGrounded = false;
+                        }
+                        break;
+                    }
+                case 2:
                     {
-                        rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                        isGrounded = false;
+                        // Moving
+                        horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
+                        rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+
+                        // Jumping
+                        if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
+                        {
+                            rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                            isGrounded = false;
+                        }
+                        break;
                     }
+                default:
+                    Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
                     break;
-                }
-            default:
-                Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
-                break;
-        }
+            }
 
-        // Rotate player
-        if (rgb.velocity.x > 0)
-        {
-            transform.eulerAngles = new Vector3(0, 0, 0);
-        }
-        if (rgb.velocity.x < 0)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-        }
+            // Rotate player
+            if (rgb.velocity.x > 0)
+            {
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            }
+            if (rgb.velocity.x < 0)
+            {
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
 
-        // Check wall collision
-        RaycastHit hit;
-        if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
+            // Check wall collision
+            RaycastHit hit;
+            if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
+            {
+                rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
+            }
+        }
+        else
         {
-            rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
+            SceneManager.LoadScene(0); // temp restart scene
         }
     }
 
