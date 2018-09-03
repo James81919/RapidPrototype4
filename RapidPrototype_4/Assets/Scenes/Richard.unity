@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44335422, g: 0.4926222, b: 0.5722616, a: 1}
+  m_IndirectSpecularColor: {r: 0.44335487, g: 0.4926228, b: 0.5722628, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1660,17 +1660,53 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4920006599072692, guid: fcdce998ae618c9448be72f4b39dbe7b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.5
+      value: 0.18
       objectReference: {fileID: 0}
     - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: reactionForce
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: reactionForceUp
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: timeBeforePulse
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: leftFlyingVec.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: leftFlyingVec.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136235160457086020, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: 3b42f0bea0622714fa21ca446a4ddb41,
+        type: 2}
+    - target: {fileID: 114780307726018200, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: reactionForceHor
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: reactionForceVer
+      value: 60
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdce998ae618c9448be72f4b39dbe7b, type: 2}

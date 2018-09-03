@@ -7,10 +7,11 @@ public class PulseReactor : MonoBehaviour
     [HideInInspector]
     public Rigidbody m_rigidBody;
 
-    public float reactionForce;
-    public float reactionForceUp;
+    [Range(0.1f, 1.0f)]
+    public float timeBeforePulse;
 
-    private bool isWaiting;
+    public float reactionForceHor;
+    public float reactionForceVer;
 
     private void Awake()
     {
@@ -25,17 +26,16 @@ public class PulseReactor : MonoBehaviour
     IEnumerator PulseCoroutine(Vector3 _otherPos)
     {
         // Wait a little bit b4 pulse the object
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(timeBeforePulse);
 
         // Get the direction of the other object thats hitting this object
-        Vector3 pulseDirection = (this.transform.position - _otherPos);
+        Vector3 pulseDirection = (this.transform.position - _otherPos).normalized;
 
-        // Combine the direction force with a little bit of up force
-        Vector3 resultForce = 
-            (pulseDirection + Vector3.up * reactionForceUp).normalized * reactionForce;
+        // Apply some up force as well
+        m_rigidBody.AddForce(Vector3.up * reactionForceVer, ForceMode.Impulse);
 
         // Apply the pulse force to the object
-        m_rigidBody.AddForce(resultForce, ForceMode.Impulse);
+        m_rigidBody.AddForce(pulseDirection * reactionForceHor, ForceMode.Impulse);
     }
 
 }
