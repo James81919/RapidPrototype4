@@ -24,7 +24,6 @@ public class GameLogic : MonoBehaviour {
         player1Movement = player1.GetComponent<PlayerMovement>();
         player2Movement = player2.GetComponent<PlayerMovement>();
     }
-
     private void Update()
     {
         if (!hasStarted)
