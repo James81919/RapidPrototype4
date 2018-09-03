@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
-    public bool isAlive;
-
     public int playerNum;
 
     public float movementSpeed;
@@ -18,70 +16,62 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         rgb = GetComponent<Rigidbody>();
-        isAlive = true;
     }
 
 	void FixedUpdate ()
     {
-        if (isAlive)
+        float horizontalSpeed;
+
+        switch (playerNum)
         {
-            float horizontalSpeed;
-
-            switch (playerNum)
+            case 1:
             {
-                case 1:
-                    {
-                        // Moving
-                        horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
-                        rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+                // Moving
+                horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
+                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
 
-                        // Jumping
-                        if (Input.GetKey(KeyCode.Space) && isGrounded)
-                        {
-                            rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                            isGrounded = false;
-                        }
-                        break;
-                    }
-                case 2:
-                    {
-                        // Moving
-                        horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
-                        rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
-
-                        // Jumping
-                        if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
-                        {
-                            rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                            isGrounded = false;
-                        }
-                        break;
-                    }
-                default:
-                    Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
-                    break;
+                // Jumping
+                if (Input.GetKey(KeyCode.Space) && isGrounded)
+                {
+                    rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                    isGrounded = false;
+                }
+                break;
             }
-
-            // Rotate player
-            if (rgb.velocity.x > 0)
+            case 2:
             {
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            }
-            if (rgb.velocity.x < 0)
-            {
-                transform.eulerAngles = new Vector3(0, 180, 0);
-            }
+                // Moving
+                horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
+                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
 
-            // Check wall collision
-            RaycastHit hit;
-            if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
-            {
-                rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
+                // Jumping
+                if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
+                {
+                    rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                    isGrounded = false;
+                }
+                break;
             }
+            default:
+                Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
+                break;
         }
-        else
+
+        // Rotate player
+        if (rgb.velocity.x > 0)
         {
-            SceneManager.LoadScene(0); // temp restart scene
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+        if (rgb.velocity.x < 0)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+
+        // Check wall collision
+        RaycastHit hit;
+        if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
+        {
+            rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
         }
     }
 
