@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44335487, g: 0.4926228, b: 0.5722628, a: 1}
+  m_IndirectSpecularColor: {r: 0.44335422, g: 0.4926222, b: 0.5722616, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1447,15 +1447,20 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1604054239}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b652ad80f3fd0046b89768a534f12b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 1209896079}
+  maxScore: 0
+  player1Spawner: {fileID: 0}
+  player2Spawner: {fileID: 0}
   water: {fileID: 533827591}
   startText: {fileID: 1224108519}
+  player1ScoreText: {fileID: 0}
+  player2ScoreText: {fileID: 0}
+  player1: {fileID: 0}
+  player2: {fileID: 1209896079}
 --- !u!114 &1604054242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,17 +1701,22 @@ Prefab:
     - target: {fileID: 114780307726018200, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: reactionForceHor
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: reactionForceVer
-      value: 60
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780307726018200, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdce998ae618c9448be72f4b39dbe7b, type: 2}
@@ -1809,7 +1819,7 @@ CharacterController:
   m_GameObject: {fileID: 1846262121}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5

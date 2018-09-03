@@ -20,15 +20,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
     {
-        float horizontalSpeed;
+        float horizontalSpeed = 0;
 
         switch (playerNum)
         {
             case 1:
-            {
                 // Moving
                 horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
-                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
 
                 // Jumping
                 if (Input.GetKey(KeyCode.Space) && isGrounded)
@@ -37,12 +35,11 @@ public class PlayerMovement : MonoBehaviour {
                     isGrounded = false;
                 }
                 break;
-            }
+
             case 2:
-            {
                 // Moving
                 horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
-                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+
 
                 // Jumping
                 if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
@@ -51,18 +48,30 @@ public class PlayerMovement : MonoBehaviour {
                     isGrounded = false;
                 }
                 break;
-            }
+
             default:
                 Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
                 break;
         }
 
+        if (horizontalSpeed != 0 && movementSpeed > Mathf.Abs(rgb.velocity.x) /*&& isGrounded*/)
+        {
+            //rgb.AddForce(horizontalSpeed, rgb.velocity.y, rgb.velocity.z, ForceMode.Force);
+            rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+        }
+
+        if (!isGrounded)
+        {
+            rgb.AddForce(0.0f, )
+        }
+
+
         // Rotate player
-        if (rgb.velocity.x > 0)
+        if (horizontalSpeed >= 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        if (rgb.velocity.x < 0)
+        else
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
