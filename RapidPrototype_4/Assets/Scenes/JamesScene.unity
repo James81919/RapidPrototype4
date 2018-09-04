@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b652ad80f3fd0046b89768a534f12b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxScore: 3
+  maxScore: 10
   player1Spawner: {fileID: 140767086}
   player2Spawner: {fileID: 490618085}
   water: {fileID: 533827591}
