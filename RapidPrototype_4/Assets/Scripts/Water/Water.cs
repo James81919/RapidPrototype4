@@ -48,10 +48,10 @@ public class Water : MonoBehaviour
 	
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine("ResetWaterLevel");
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    StartCoroutine("ResetWaterLevel");
+        //}
     }
 
     private void FixedUpdate()
