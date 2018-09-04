@@ -29,24 +29,27 @@ public class PlayerMovement : MonoBehaviour {
                 horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
 
                 // Jumping
-                if (Input.GetKey(KeyCode.Space) && isGrounded)
+                if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
                 {
-                    rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                    rgb.AddForce(0.0f, jumpHeight * 1.0f, 0.0f, ForceMode.Impulse);
+                    //rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
                     isGrounded = false;
                 }
+
                 break;
 
             case 2:
                 // Moving
                 horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
 
-
                 // Jumping
-                if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
+                if (Input.GetKeyDown(KeyCode.Keypad0) && isGrounded)
                 {
-                    rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                    rgb.AddForce(0.0f, jumpHeight * 1.0f, 0.0f, ForceMode.Impulse);
+                    //rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
                     isGrounded = false;
                 }
+
                 break;
 
             default:
@@ -54,17 +57,18 @@ public class PlayerMovement : MonoBehaviour {
                 break;
         }
 
-        if (horizontalSpeed != 0 && movementSpeed > Mathf.Abs(rgb.velocity.x) /*&& isGrounded*/)
+        if (horizontalSpeed != 0 &&
+            (rgb.velocity.x < movementSpeed || rgb.velocity.x > -movementSpeed))
         {
             //rgb.AddForce(horizontalSpeed, rgb.velocity.y, rgb.velocity.z, ForceMode.Force);
             rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
         }
 
-        if (!isGrounded)
+        // Aplly extra gravity on falling to create realistic effect
+        if (!isGrounded && rgb.velocity.y < 0)
         {
-            rgb.AddForce(0.0f, )
+            rgb.AddForce(Physics.gravity, ForceMode.Acceleration);
         }
-
 
         // Rotate player
         if (horizontalSpeed >= 0)
@@ -84,7 +88,7 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         isGrounded = true;
     }
