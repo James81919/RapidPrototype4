@@ -40,7 +40,8 @@ public class PulseReactor : MonoBehaviour
 
     private void OnCollisionEnter(Collision _otherCollider)
     {
-        if (_otherCollider.gameObject.tag == "Trash")
+        Trash trash = _otherCollider.gameObject.GetComponent<Trash>();
+        if (trash && trash.HasPower)
         {
             GetPulsed(_otherCollider.transform.position);
         }
