@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44335487, g: 0.4926228, b: 0.5722628, a: 1}
+  m_IndirectSpecularColor: {r: 0.44335422, g: 0.4926222, b: 0.5722616, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -299,12 +299,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &533827591 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
-    type: 2}
-  m_PrefabInternal: {fileID: 2124112318}
-  m_Script: {fileID: 11500000, guid: 0760a7a024f6bab4dbfb75f93ac3ba4c, type: 3}
 --- !u!1 &718001927
 GameObject:
   m_ObjectHideFlags: 0
@@ -860,11 +854,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1205953281}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1209896079 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1402514758107018, guid: b042f6c0f9607a74cb7e5eb2c22a596e,
-    type: 2}
-  m_PrefabInternal: {fileID: 1517505546}
 --- !u!1 &1218392915
 GameObject:
   m_ObjectHideFlags: 0
@@ -1447,15 +1436,20 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1604054239}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5b652ad80f3fd0046b89768a534f12b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxScore: 0
+  player1Spawner: {fileID: 0}
+  player2Spawner: {fileID: 0}
+  water: {fileID: 0}
+  startText: {fileID: 0}
+  player1ScoreText: {fileID: 0}
+  player2ScoreText: {fileID: 0}
   player1: {fileID: 0}
-  player2: {fileID: 1209896079}
-  water: {fileID: 533827591}
-  startText: {fileID: 1224108519}
+  player2: {fileID: 0}
 --- !u!114 &1604054242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1467,8 +1461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4a0d5857fa0ef4e9fc81a4f5d73389, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulseActor: {fileID: 1846262121}
-  pulseOrigin: {fileID: 1514185429}
+  pulseActor: {fileID: 0}
+  pulseOrigin: {fileID: 0}
 --- !u!1 &1624045362
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,17 +1690,27 @@ Prefab:
     - target: {fileID: 114780307726018200, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: reactionForceHor
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 114243003849539266, guid: fcdce998ae618c9448be72f4b39dbe7b,
         type: 2}
       propertyPath: reactionForceVer
-      value: 60
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 114780307726018200, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 54501125185356672, guid: fcdce998ae618c9448be72f4b39dbe7b,
+        type: 2}
+      propertyPath: m_Mass
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcdce998ae618c9448be72f4b39dbe7b, type: 2}
@@ -1809,7 +1813,7 @@ CharacterController:
   m_GameObject: {fileID: 1846262121}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Height: 2
   m_Radius: 0.5

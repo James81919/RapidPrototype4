@@ -68,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1402514758107018}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5, y: 2, z: 0}
+  m_LocalPosition: {x: 4.9265685, y: 1.3, z: 0.19634724}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4098754444427012}
@@ -159,7 +159,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 266
   firepoint: {fileID: 1964625373362284}
-  objectfire: {fileID: 1296360558852574, guid: ca87a307527a8144c9edd7c84894c16b, type: 2}
+  objectfire:
+  - {fileID: 1354301622360394, guid: 558aac0a254506d4b86fdffafd2fc02c, type: 2}
+  - {fileID: 1979596342420952, guid: 38dbaf30a9153224481d45ad945a1115, type: 2}
+  - {fileID: 1632360189121698, guid: 561847df1a66e604eb9bb6673011fde7, type: 2}
+  - {fileID: 1134940403870458, guid: 39206d892ce7b154aaff263da7e94a45, type: 2}
+  - {fileID: 1985382793157276, guid: 75dba940a8fbdf746bd4c993abc90a61, type: 2}
+  - {fileID: 1379712232394542, guid: 795b81b8c2863e84891bebc6c8ba5830, type: 2}
+  - {fileID: 1624215906449572, guid: 6d003e19e3a1d374c8b2c8eb3aa505a7, type: 2}
+  - {fileID: 1047487889855952, guid: 33fd3f10571b89c40a973fd95085ffb8, type: 2}
+  - {fileID: 1447706779032026, guid: 7557ea450ec95dc43a75cd64541cfe50, type: 2}
+  - {fileID: 1401330125982300, guid: 380be501f63ac4e41875c665cdb4db92, type: 2}
+  - {fileID: 1063875407807206, guid: d7bef38950c85ce4497d599b15b3d7d7, type: 2}
   firespeed: 500
 --- !u!135 &135048787973282092
 SphereCollider:

@@ -9,7 +9,7 @@ public class Shoot : MonoBehaviour {
     private GameObject firepoint;
 
     [SerializeField]
-    private GameObject objectfire;
+    private GameObject[] objectfire;
 
     public float firespeed;
 
@@ -31,20 +31,23 @@ public class Shoot : MonoBehaviour {
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
-                GameObject trash = Instantiate(objectfire, firepoint.transform.position, Quaternion.identity) as GameObject;
+                int i = Random.Range(0, objectfire.Length);
+                GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
                 trash.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
             }
             else if (playerNum == 1 && Input.GetKey(KeyCode.W)
                 || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
             {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
-                GameObject trash = Instantiate(objectfire, firepoint.transform.position, Quaternion.identity) as GameObject;
+                int i = Random.Range(0, objectfire.Length);
+                GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
                 trash.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
             }
             else
             {
                 firepoint.transform.localPosition = firePointPos;
-                GameObject trash = Instantiate(objectfire, firepoint.transform.position, Quaternion.identity) as GameObject;
+                int i = Random.Range(0, objectfire.Length);
+                GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
                 trash.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
             }
 
