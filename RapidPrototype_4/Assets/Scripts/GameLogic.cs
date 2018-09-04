@@ -27,9 +27,6 @@ public class GameLogic : MonoBehaviour {
     private GameObject player2Prefab;
 
     private bool hasStarted;
-    
-    private PlayerMovement player1Movement;
-    private PlayerMovement player2Movement;
 
     private int Player1Score;
     private int Player2Score;
@@ -39,16 +36,19 @@ public class GameLogic : MonoBehaviour {
     private GameObject player1_GO;
     private GameObject player2_GO;
 
+    [System.NonSerialized]
+    public Dictionary<string, KeyCode> keyBindings = new Dictionary<string, KeyCode>();
+
     private void Start()
     {
         //DontDestroyOnLoad(this.gameObject);
+
+        InitKeyBinding();
 
         hasStarted = false;
         restarting = false;
         startText.enabled = true;
 
-        player1Movement = player1Prefab.GetComponent<PlayerMovement>();
-        player2Movement = player2Prefab.GetComponent<PlayerMovement>();
         Player1Score = 0;
         Player2Score = 0;
         player1_GO = Instantiate(player1Prefab, player1Spawner.position, player1Spawner.rotation);
@@ -124,5 +124,24 @@ public class GameLogic : MonoBehaviour {
         StartCoroutine(water.ResetWaterLevel());
 
         restarting = true;
+    }
+
+    private void InitKeyBinding()
+    {
+        keyBindings.Add("Up1", KeyCode.W);
+        keyBindings.Add("Down1", KeyCode.S);
+        keyBindings.Add("Left1", KeyCode.A);
+        keyBindings.Add("Right1", KeyCode.D);
+        keyBindings.Add("Jump1", KeyCode.Space);
+        keyBindings.Add("Fire1", KeyCode.F);
+        keyBindings.Add("AltFire1", KeyCode.G);
+
+        keyBindings.Add("Up2", KeyCode.UpArrow);
+        keyBindings.Add("Down2", KeyCode.DownArrow);
+        keyBindings.Add("Left2", KeyCode.LeftArrow);
+        keyBindings.Add("Right2", KeyCode.RightArrow);
+        keyBindings.Add("Jump2", KeyCode.Keypad0);
+        keyBindings.Add("Fire2", KeyCode.KeypadPeriod);
+        keyBindings.Add("AltFire2", KeyCode.Keypad1);
     }
 }

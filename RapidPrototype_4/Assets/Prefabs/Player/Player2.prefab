@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 266
   firepoint: {fileID: 1964625373362284}
+  effectfire: 257
   objectfire:
   - {fileID: 1354301622360394, guid: 558aac0a254506d4b86fdffafd2fc02c, type: 2}
   - {fileID: 1979596342420952, guid: 38dbaf30a9153224481d45ad945a1115, type: 2}
@@ -171,7 +172,11 @@ MonoBehaviour:
   - {fileID: 1447706779032026, guid: 7557ea450ec95dc43a75cd64541cfe50, type: 2}
   - {fileID: 1401330125982300, guid: 380be501f63ac4e41875c665cdb4db92, type: 2}
   - {fileID: 1063875407807206, guid: d7bef38950c85ce4497d599b15b3d7d7, type: 2}
+  lightning: {fileID: 1406076070149814, guid: 146d88dfbab5c8f469bda990b69d08ed, type: 2}
   firespeed: 500
+  firerate: 0.5
+  firedownrate: 1
+  firelightingrate: 1.5
 --- !u!135 &135048787973282092
 SphereCollider:
   m_ObjectHideFlags: 1
