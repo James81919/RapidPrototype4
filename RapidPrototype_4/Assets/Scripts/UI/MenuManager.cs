@@ -15,11 +15,18 @@ public class MenuManager : MonoBehaviour {
 
     public void Button_Menu_Controls()
     {
-
+        menuCanvas.enabled = false;
+        controlsCanvas.enabled = true;
     }
 
     public void Button_Menu_QuitGame()
     {
         Application.Quit();
+    }
+
+    public void Button_Controls_Back()
+    {
+        menuCanvas.enabled = true;
+
     }
 }
