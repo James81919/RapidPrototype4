@@ -38,4 +38,11 @@ public class PulseReactor : MonoBehaviour
         m_rigidBody.AddForce(pulseDirection * reactionForceHor, ForceMode.Impulse);
     }
 
+    private void OnCollisionEnter(Collision _otherCollider)
+    {
+        if (_otherCollider.gameObject.tag == "Trash")
+        {
+            GetPulsed(_otherCollider.transform.position);
+        }
+    }
 }
