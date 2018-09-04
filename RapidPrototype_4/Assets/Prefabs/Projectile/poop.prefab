@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 23868314179264932}
   - component: {fileID: 54953693686666190}
   - component: {fileID: 65935760620145870}
+  - component: {fileID: 114928853578658992}
   m_Layer: 0
   m_Name: poop
   m_TagString: Trash
@@ -112,3 +113,14 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.67821723, y: 0.45770448, z: 0.5873537}
   m_Center: {x: 0, y: 0.09061123, z: 0.0000011473894}
+--- !u!114 &114928853578658992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1624215906449572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1ea120f36d16546880763cef1688df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
