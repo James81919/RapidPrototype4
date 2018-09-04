@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 4574030118858010}
   - component: {fileID: 54038350397279662}
   - component: {fileID: 135166447229367614}
+  - component: {fileID: 114157618425066452}
   m_Layer: 0
   m_Name: LightningBall
   m_TagString: Untagged
@@ -147,7 +148,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 8
   m_CollisionDetection: 0
 --- !u!108 &108941393020988566
 Light:
@@ -186,6 +187,18 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114157618425066452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1406076070149814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9e8ac6adf270074facd45a1feb1aa18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effect: {fileID: 1735814719262814, guid: fea96ba4a7c151d4e9148cf856fa4dc8, type: 2}
 --- !u!135 &135166447229367614
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -289,8 +302,8 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.3
-      minScalar: 0.15
+      scalar: 0.8
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
