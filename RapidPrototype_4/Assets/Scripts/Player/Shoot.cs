@@ -15,10 +15,14 @@ public class Shoot : MonoBehaviour {
 
     [SerializeField]
     private GameObject lightning;
-
-
+       
     public float firespeed;
-
+    public float firerate;
+    public float firedownrate;
+    public float firelightingrate;
+    float lastshot;
+    float lastshotdown;
+    float lastlightingshot;
     private int playerNum;
     private Vector3 firePointPos;
 
@@ -28,61 +32,94 @@ public class Shoot : MonoBehaviour {
         firePointPos = firepoint.transform.localPosition;
     }
 
+    void Fire() {
+        if(Time.time > firerate + lastshot)
+        {
+            int i = Random.Range(0, objectfire.Length);
+            GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
+            trash.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
+            lastshot = Time.time;
+        }
+
+    }
+
+    void FireUp()
+    {
+        if (Time.time > firerate + lastshot)
+        {
+            int i = Random.Range(0, objectfire.Length);
+            GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
+            trash.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
+            lastshot = Time.time;
+        }
+
+    }
+
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetKeyDown(key))
+
+        
+
+        if (Input.GetKey(key))
         {
             if (playerNum == 1 && Input.GetKey(KeyCode.S)
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
-                int i = Random.Range(0, objectfire.Length);
-                GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
-                trash.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
+                if (Time.time > firedownrate + lastshotdown) {
+                    int i = Random.Range(0, objectfire.Length);
+                    GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
+                    trash.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
+                    lastshotdown = Time.time;
+                }
             }
             else if (playerNum == 1 && Input.GetKey(KeyCode.W)
                 || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
             {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
-                int i = Random.Range(0, objectfire.Length);
-                GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
-                trash.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
+                FireUp();
             }
             else
             {
                 firepoint.transform.localPosition = firePointPos;
-                int i = Random.Range(0, objectfire.Length);
-                GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
-                trash.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
+                Fire();
             }
 
         }
 
-        if (Input.GetKeyDown(effectfire))
+        if (Input.GetKey(effectfire))
         {
             if (playerNum == 1 && Input.GetKey(KeyCode.S)
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
-
-                GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
-                effect.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
+                if (Time.time > firelightingrate + lastlightingshot) {
+                    GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
+                    effect.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
+                    lastlightingshot = Time.time;
+                }
             }
             else if (playerNum == 1 && Input.GetKey(KeyCode.W)
                 || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
             {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
-
-                GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
-                effect.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
+                if (Time.time > firelightingrate + lastlightingshot)
+                {
+                    GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
+                    effect.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
+                    lastlightingshot = Time.time;
+                }
             }
             else
             {
                 firepoint.transform.localPosition = firePointPos;
-
-                GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
-                effect.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
+                if (Time.time > firelightingrate + lastlightingshot)
+                {
+                    GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
+                    effect.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
+                    lastlightingshot = Time.time;
+                }
             }
         }
 
