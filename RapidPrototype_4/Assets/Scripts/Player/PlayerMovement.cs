@@ -20,13 +20,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate ()
     {
-        float horizontalSpeed = 0;
+        float horizontalInput = 0;
 
         switch (playerNum)
         {
             case 1:
                 // Moving
-                horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
+                horizontalInput = Input.GetAxis("Horizontal") * movementSpeed;
 
                 // Jumping
                 if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour {
 
             case 2:
                 // Moving
-                horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
+                horizontalInput = Input.GetAxis("Horizontal2") * movementSpeed;
 
                 // Jumping
                 if (Input.GetKeyDown(KeyCode.Keypad0) && isGrounded)
@@ -57,11 +57,11 @@ public class PlayerMovement : MonoBehaviour {
                 break;
         }
 
-        if (horizontalSpeed != 0 &&
+        if (horizontalInput != 0 &&
             (rgb.velocity.x < movementSpeed || rgb.velocity.x > -movementSpeed))
         {
             //rgb.AddForce(horizontalSpeed, rgb.velocity.y, rgb.velocity.z, ForceMode.Force);
-            rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+            rgb.velocity = new Vector3(horizontalInput, rgb.velocity.y, rgb.velocity.z);
         }
 
         // Aplly extra gravity on falling to create realistic effect
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // Rotate player
-        if (horizontalSpeed >= 0)
+        if (horizontalInput >= 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
@@ -81,14 +81,14 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // Check wall collision
-        RaycastHit hit;
-        if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
-        {
-            rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
-        }
+//         RaycastHit hit;
+//         if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
+//         {
+//             rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
+//         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         isGrounded = true;
     }
