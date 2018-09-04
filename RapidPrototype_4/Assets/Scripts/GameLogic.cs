@@ -27,9 +27,6 @@ public class GameLogic : MonoBehaviour {
     private GameObject player2Prefab;
 
     private bool hasStarted;
-    
-    private PlayerMovement player1Movement;
-    private PlayerMovement player2Movement;
 
     private int Player1Score;
     private int Player2Score;
@@ -47,8 +44,6 @@ public class GameLogic : MonoBehaviour {
         restarting = false;
         startText.enabled = true;
 
-        player1Movement = player1Prefab.GetComponent<PlayerMovement>();
-        player2Movement = player2Prefab.GetComponent<PlayerMovement>();
         Player1Score = 0;
         Player2Score = 0;
         player1_GO = Instantiate(player1Prefab, player1Spawner.position, player1Spawner.rotation);
