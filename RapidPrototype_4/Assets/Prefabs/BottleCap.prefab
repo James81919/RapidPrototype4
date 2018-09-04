@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33155384805396152}
   - component: {fileID: 23207266615726526}
   - component: {fileID: 54649399609455638}
-  - component: {fileID: 64044681629110768}
+  - component: {fileID: 65807485204068924}
   m_Layer: 0
   m_Name: BottleCap
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64044681629110768
-MeshCollider:
+--- !u!65 &65807485204068924
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,8 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 27b3a070fc8fa424594eb6b6ba88e590, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.67994535, y: 0.26041755, z: 0.6799428}
+  m_Center: {x: -0.000000014901161, y: 0, z: -0.0000013113022}

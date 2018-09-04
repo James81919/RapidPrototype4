@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 135048787973282092}
   m_Layer: 0
   m_Name: Player2
-  m_TagString: Player
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -160,17 +160,17 @@ MonoBehaviour:
   key: 266
   firepoint: {fileID: 1964625373362284}
   objectfire:
-  - {fileID: 100000, guid: 599a0d9825f14174ea0c910129f8ee30, type: 3}
-  - {fileID: 100000, guid: 17a8d37e766877444ae6015dca51130c, type: 3}
-  - {fileID: 100000, guid: 7102fa5d258a3724dbed5f24d357e025, type: 3}
-  - {fileID: 100000, guid: 27b3a070fc8fa424594eb6b6ba88e590, type: 3}
-  - {fileID: 100000, guid: 4c04a350ac985d24caf39448daa5121f, type: 3}
-  - {fileID: 100000, guid: 1b960dde71d6fc94bacf86ac607c1c1f, type: 3}
-  - {fileID: 100000, guid: 4964e229efe6c0b44a19e769b59c3707, type: 3}
-  - {fileID: 100000, guid: 094712dce3ffb954eb6e7a1f1805d65c, type: 3}
-  - {fileID: 100000, guid: e08dc3a340d84804eb2e4f1df7ded8b2, type: 3}
-  - {fileID: 100000, guid: b6224b42b755931448ffaaf710f3713a, type: 3}
-  - {fileID: 100000, guid: 7674e35e9ac3a284ba5b15033e6f531c, type: 3}
+  - {fileID: 1354301622360394, guid: 558aac0a254506d4b86fdffafd2fc02c, type: 2}
+  - {fileID: 1979596342420952, guid: 38dbaf30a9153224481d45ad945a1115, type: 2}
+  - {fileID: 1632360189121698, guid: 561847df1a66e604eb9bb6673011fde7, type: 2}
+  - {fileID: 1134940403870458, guid: 39206d892ce7b154aaff263da7e94a45, type: 2}
+  - {fileID: 1985382793157276, guid: 75dba940a8fbdf746bd4c993abc90a61, type: 2}
+  - {fileID: 1379712232394542, guid: 795b81b8c2863e84891bebc6c8ba5830, type: 2}
+  - {fileID: 1624215906449572, guid: 6d003e19e3a1d374c8b2c8eb3aa505a7, type: 2}
+  - {fileID: 1047487889855952, guid: 33fd3f10571b89c40a973fd95085ffb8, type: 2}
+  - {fileID: 1447706779032026, guid: 7557ea450ec95dc43a75cd64541cfe50, type: 2}
+  - {fileID: 1401330125982300, guid: 380be501f63ac4e41875c665cdb4db92, type: 2}
+  - {fileID: 1063875407807206, guid: d7bef38950c85ce4497d599b15b3d7d7, type: 2}
   firespeed: 500
 --- !u!135 &135048787973282092
 SphereCollider:

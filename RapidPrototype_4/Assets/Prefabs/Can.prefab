@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33071440824007094}
   - component: {fileID: 23196489126552566}
   - component: {fileID: 54632853271386954}
-  - component: {fileID: 64707832714377050}
+  - component: {fileID: 65580249270559482}
   m_Layer: 0
   m_Name: Can
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64707832714377050
-MeshCollider:
+--- !u!65 &65580249270559482
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,8 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 4c04a350ac985d24caf39448daa5121f, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.43718258, y: 0.6775946, z: 0.4371834}
+  m_Center: {x: -0.000000014901161, y: 0, z: 0}

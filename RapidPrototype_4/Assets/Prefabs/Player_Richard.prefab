@@ -24,11 +24,12 @@ GameObject:
   - component: {fileID: 54501125185356672}
   - component: {fileID: 114780307726018200}
   - component: {fileID: 114128026149954698}
+  - component: {fileID: 114243003849539266}
   - component: {fileID: 136235160457086020}
   - component: {fileID: 135734644810311224}
   m_Layer: 0
-  m_Name: Player1
-  m_TagString: Player1
+  m_Name: Player_Richard
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022674125033758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 2, z: 0}
+  m_LocalPosition: {x: -3.5, y: 2.32, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children:
   - {fileID: 4499373721009200}
@@ -147,6 +148,19 @@ MonoBehaviour:
   firepoint: {fileID: 1704405313658946}
   objectfire: {fileID: 1296360558852574, guid: ca87a307527a8144c9edd7c84894c16b, type: 2}
   firespeed: 500
+--- !u!114 &114243003849539266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022674125033758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bee66d3badfcf4ea5ee04e2858993c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rigidBody: {fileID: 0}
+  reactionForce: 1
 --- !u!114 &114780307726018200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3499cc7b82a1304b9f34e380e54e5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAlive: 0
   playerNum: 1
   movementSpeed: 5
   jumpHeight: 8

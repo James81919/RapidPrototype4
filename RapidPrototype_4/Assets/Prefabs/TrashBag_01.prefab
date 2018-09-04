@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33897387855791094}
   - component: {fileID: 23835475253032474}
   - component: {fileID: 54883755253736374}
-  - component: {fileID: 64183034062887648}
+  - component: {fileID: 65043205585592922}
   m_Layer: 0
   m_Name: TrashBag_01
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64183034062887648
-MeshCollider:
+--- !u!65 &65043205585592922
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,8 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 094712dce3ffb954eb6e7a1f1805d65c, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1.4587431, y: 1.5488346, z: 1.5986613}
+  m_Center: {x: 0.0007482767, y: 0.04306206, z: 0.000418365}

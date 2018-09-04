@@ -48,10 +48,10 @@ public class Water : MonoBehaviour
 	
 	void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            StartCoroutine("ResetWaterLevel");
-        }
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    StartCoroutine("ResetWaterLevel");
+        //}
     }
 
     private void FixedUpdate()
@@ -70,7 +70,7 @@ public class Water : MonoBehaviour
         this.transform.position = resultVec;
     }
 
-    IEnumerator ResetWaterLevel()
+    public IEnumerator ResetWaterLevel()
     {
         // Disable the raising ability at the begining
         m_shouldRaised = false;
@@ -89,5 +89,5 @@ public class Water : MonoBehaviour
         {
             this.transform.position = m_startingLocation;
         }
-    }
+    } 
 }

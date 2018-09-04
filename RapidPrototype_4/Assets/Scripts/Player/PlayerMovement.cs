@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -21,36 +22,36 @@ public class PlayerMovement : MonoBehaviour {
     {
         float horizontalSpeed;
 
-        switch(playerNum)
+        switch (playerNum)
         {
             case 1:
-                {
-                    // Moving
-                    horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
-                    rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+            {
+                // Moving
+                horizontalSpeed = Input.GetAxis("Horizontal") * movementSpeed;
+                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
 
-                    // Jumping
-                    if (Input.GetKey(KeyCode.Space) && isGrounded)
-                    {
-                        rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                        isGrounded = false;
-                    }
-                    break;
+                // Jumping
+                if (Input.GetKey(KeyCode.Space) && isGrounded)
+                {
+                    rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                    isGrounded = false;
                 }
+                break;
+            }
             case 2:
-                {
-                    // Moving
-                    horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
-                    rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
+            {
+                // Moving
+                horizontalSpeed = Input.GetAxis("Horizontal2") * movementSpeed;
+                rgb.velocity = new Vector3(horizontalSpeed, rgb.velocity.y, rgb.velocity.z);
 
-                    // Jumping
-                    if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
-                    {
-                        rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                        isGrounded = false;
-                    }
-                    break;
+                // Jumping
+                if (Input.GetKey(KeyCode.Keypad0) && isGrounded)
+                {
+                    rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
+                    isGrounded = false;
                 }
+                break;
+            }
             default:
                 Debug.LogError("There is no player " + playerNum + "! Please enter a correct player number!");
                 break;

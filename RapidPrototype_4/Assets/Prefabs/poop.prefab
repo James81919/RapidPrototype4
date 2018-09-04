@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 33649469296052122}
   - component: {fileID: 23868314179264932}
   - component: {fileID: 54953693686666190}
-  - component: {fileID: 64732701130680458}
+  - component: {fileID: 65935760620145870}
   m_Layer: 0
   m_Name: poop
-  m_TagString: Untagged
+  m_TagString: Trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,8 +100,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64732701130680458
-MeshCollider:
+--- !u!65 &65935760620145870
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -109,8 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 4964e229efe6c0b44a19e769b59c3707, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 0.67821723, y: 0.45770448, z: 0.5873537}
+  m_Center: {x: 0, y: 0.09061123, z: 0.0000011473894}
