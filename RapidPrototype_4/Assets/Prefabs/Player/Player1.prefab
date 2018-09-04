@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 114128026149954698}
   - component: {fileID: 136235160457086020}
   - component: {fileID: 135734644810311224}
+  - component: {fileID: 114275933753487196}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -163,6 +164,21 @@ MonoBehaviour:
   firerate: 0.1
   firedownrate: 0.5
   firelightingrate: 1.5
+--- !u!114 &114275933753487196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022674125033758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bee66d3badfcf4ea5ee04e2858993c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_rigidBody: {fileID: 0}
+  timeBeforePulse: 0.3
+  reactionForceHor: 3
+  reactionForceVer: 4
 --- !u!114 &114780307726018200
 MonoBehaviour:
   m_ObjectHideFlags: 1
