@@ -1236,7 +1236,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 629162669}
   m_HandleRect: {fileID: 629162668}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.45750004
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1560,7 +1560,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 679156457}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.99999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7219,7 +7219,7 @@ GameObject:
   - component: {fileID: 1969165037}
   - component: {fileID: 1969165036}
   m_Layer: 5
-  m_Name: SettingsButton
+  m_Name: ControlsButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7459,7 +7459,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SETTINGS
+  m_Text: CONTROLS
 --- !u!222 &2006755995
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7829,7 +7829,7 @@ Prefab:
     - target: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
         type: 2}
       propertyPath: m_raisingAmount
-      value: 0.005
+      value: 0.0025
       objectReference: {fileID: 0}
     - target: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
         type: 2}
