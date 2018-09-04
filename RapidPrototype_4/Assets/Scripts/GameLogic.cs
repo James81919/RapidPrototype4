@@ -22,9 +22,9 @@ public class GameLogic : MonoBehaviour {
 
     [Header("Prefabs")]
     [SerializeField]
-    private GameObject player1;
+    private GameObject player1Prefab;
     [SerializeField]
-    private GameObject player2;
+    private GameObject player2Prefab;
 
     private bool hasStarted;
     
@@ -36,6 +36,9 @@ public class GameLogic : MonoBehaviour {
 
     private bool restarting;
 
+    private GameObject player1_GO;
+    private GameObject player2_GO;
+
     private void Start()
     {
         //DontDestroyOnLoad(this.gameObject);
@@ -44,13 +47,14 @@ public class GameLogic : MonoBehaviour {
         restarting = false;
         startText.enabled = true;
 
-        player1Movement = player1.GetComponent<PlayerMovement>();
-        player2Movement = player2.GetComponent<PlayerMovement>();
+        player1Movement = player1Prefab.GetComponent<PlayerMovement>();
+        player2Movement = player2Prefab.GetComponent<PlayerMovement>();
         Player1Score = 0;
         Player2Score = 0;
-        Instantiate(player1, player1Spawner.position, player1Spawner.rotation);
-        Instantiate(player2, player2Spawner.position, player2Spawner.rotation);
+        player1_GO = Instantiate(player1Prefab, player1Spawner.position, player1Spawner.rotation);
+        player2_GO = Instantiate(player2Prefab, player2Spawner.position, player2Spawner.rotation);
     }
+
     private void Update()
     {
         if (!hasStarted)
@@ -66,17 +70,36 @@ public class GameLogic : MonoBehaviour {
             }
         }
 
-        if (water.transform.Find("WaterTop").position.y > player1.transform.position.y + 0.1f)
+        if (restarting)
         {
-            // Player 1 death
-            Player2Score++;
-            Restart();
+            if (water.transform.position == water.StartingLocation)
+            {
+                player1_GO = Instantiate(player1Prefab, player1Spawner.position, player1Spawner.rotation);
+                player2_GO = Instantiate(player2Prefab, player2Spawner.position, player2Spawner.rotation);
+                water.ShouldRaised = true;
+                restarting = false;
+            }
         }
-        if (water.transform.Find("WaterTop").position.y > player2.transform.position.y + 0.1f)
+        else
         {
-            // Player 2 death
-            Player1Score++;
-            Restart();
+            if (water.transform.Find("WaterTop").position.y > player1_GO.transform.position.y + 0.1f)
+            {
+                // Player 1 death
+                if (player1_GO.transform.position.y != player2_GO.transform.position.y)
+                {
+                    Player2Score++;
+                }
+                Restart();
+            }
+            if (water.transform.Find("WaterTop").position.y > player2_GO.transform.position.y + 0.1f)
+            {
+                // Player 2 death
+                if (player1_GO.transform.position.y != player2_GO.transform.position.y)
+                {
+                    Player1Score++;
+                }
+                Restart();
+            }
         }
 
         player1ScoreText.text = Player1Score.ToString();
@@ -85,17 +108,6 @@ public class GameLogic : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
-        }
-
-        if (restarting)
-        {
-            if (water.transform.position == water.StartingLocation)
-            {
-                Instantiate(player1, player1Spawner.position, player1Spawner.rotation);
-                Instantiate(player2, player2Spawner.position, player2Spawner.rotation);
-                water.ShouldRaised = true;
-                restarting = false;
-            }
         }
     }
 
