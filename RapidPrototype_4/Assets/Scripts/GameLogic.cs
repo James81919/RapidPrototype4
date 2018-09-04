@@ -34,11 +34,14 @@ public class GameLogic : MonoBehaviour {
     private int Player1Score;
     private int Player2Score;
 
+    private bool restarting;
+
     private void Start()
     {
         //DontDestroyOnLoad(this.gameObject);
 
         hasStarted = false;
+        restarting = false;
         startText.enabled = true;
 
         player1Movement = player1.GetComponent<PlayerMovement>();
@@ -83,14 +86,31 @@ public class GameLogic : MonoBehaviour {
         {
             Application.Quit();
         }
+
+        if (restarting)
+        {
+            if (water.transform.position == water.StartingLocation)
+            {
+                Instantiate(player1, player1Spawner.position, player1Spawner.rotation);
+                Instantiate(player2, player2Spawner.position, player2Spawner.rotation);
+                water.ShouldRaised = true;
+                restarting = false;
+            }
+        }
     }
 
     private void Restart()
     {
-        Destroy(GameObject.Find("Player1"));
-        Destroy(GameObject.Find("Player2"));
-        water.ResetWaterLevel();
-        Instantiate(player1, player1Spawner.position, player1Spawner.rotation);
-        Instantiate(player2, player2Spawner.position, player2Spawner.rotation);
+        Destroy(GameObject.FindGameObjectWithTag("Player1"));
+        Destroy(GameObject.FindGameObjectWithTag("Player2"));
+
+        foreach (GameObject trash in GameObject.FindGameObjectsWithTag("Trash"))
+        {
+            Destroy(trash);
+        }
+
+        StartCoroutine(water.ResetWaterLevel());
+
+        restarting = true;
     }
 }
