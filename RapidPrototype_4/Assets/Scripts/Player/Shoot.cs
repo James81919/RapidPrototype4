@@ -61,7 +61,7 @@ public class Shoot : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetKey(key))
+        if (Input.GetKeyDown(key))
         {
             if (playerNum == 1 && Input.GetKey(KeyCode.S)
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
@@ -74,8 +74,8 @@ public class Shoot : MonoBehaviour {
                     lastshotdown = Time.time;
                 }
             }
-            else if (playerNum == 1 && Input.GetKey(KeyCode.W)
-                || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
+            else if (playerNum == 1 && Input.GetKeyDown(KeyCode.W)
+                || playerNum == 2 && Input.GetKeyDown(KeyCode.UpArrow))
             {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
                 FireUp();
