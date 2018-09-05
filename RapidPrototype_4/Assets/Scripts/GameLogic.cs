@@ -16,7 +16,7 @@ public class GameLogic : MonoBehaviour {
     public Water water;
 
     [Header("UI")]
-    public Text startText;
+    public GameObject startText;
     public Text player1ScoreText;
     public Text player2ScoreText;
 
@@ -36,18 +36,13 @@ public class GameLogic : MonoBehaviour {
     private GameObject player1_GO;
     private GameObject player2_GO;
 
-    [System.NonSerialized]
-    public Dictionary<string, KeyCode> keyBindings = new Dictionary<string, KeyCode>();
-
     private void Start()
     {
         //DontDestroyOnLoad(this.gameObject);
 
-        InitKeyBinding();
-
         hasStarted = false;
         restarting = false;
-        startText.enabled = true;
+        startText.SetActive(true);
 
         Player1Score = 0;
         Player2Score = 0;
@@ -64,7 +59,7 @@ public class GameLogic : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 hasStarted = true;
-                startText.enabled = false;
+                startText.SetActive(false);
                 Time.timeScale = 1;
                 water.ShouldRaised = true;
             }
@@ -104,11 +99,6 @@ public class GameLogic : MonoBehaviour {
 
         player1ScoreText.text = Player1Score.ToString();
         player2ScoreText.text = Player2Score.ToString();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     private void Restart()
@@ -124,24 +114,5 @@ public class GameLogic : MonoBehaviour {
         StartCoroutine(water.ResetWaterLevel());
 
         restarting = true;
-    }
-
-    private void InitKeyBinding()
-    {
-        keyBindings.Add("Up1", KeyCode.W);
-        keyBindings.Add("Down1", KeyCode.S);
-        keyBindings.Add("Left1", KeyCode.A);
-        keyBindings.Add("Right1", KeyCode.D);
-        keyBindings.Add("Jump1", KeyCode.Space);
-        keyBindings.Add("Fire1", KeyCode.F);
-        keyBindings.Add("AltFire1", KeyCode.G);
-
-        keyBindings.Add("Up2", KeyCode.UpArrow);
-        keyBindings.Add("Down2", KeyCode.DownArrow);
-        keyBindings.Add("Left2", KeyCode.LeftArrow);
-        keyBindings.Add("Right2", KeyCode.RightArrow);
-        keyBindings.Add("Jump2", KeyCode.Keypad0);
-        keyBindings.Add("Fire2", KeyCode.KeypadPeriod);
-        keyBindings.Add("AltFire2", KeyCode.Keypad1);
     }
 }

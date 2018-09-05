@@ -26,10 +26,13 @@ public class Shoot : MonoBehaviour {
     private int playerNum;
     private Vector3 firePointPos;
 
+    private KeyBinding keyBinder;
+
     private void Start()
     {
         playerNum = GetComponent<PlayerMovement>().playerNum;
         firePointPos = firepoint.transform.localPosition;
+        keyBinder = GameObject.FindGameObjectWithTag("GameController").GetComponent<KeyBinding>();
     }
 
     void Fire() {
@@ -58,12 +61,9 @@ public class Shoot : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-
-        
-
         if (Input.GetKey(key))
         {
-            if (playerNum == 1 && Input.GetKey(KeyCode.S)
+            if (playerNum == 1 && Input.GetKeyDown(KeyCode.S)
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);

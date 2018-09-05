@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   key: 102
   firepoint: {fileID: 1704405313658946}
+  effectfire: 0
   objectfire:
   - {fileID: 1354301622360394, guid: 558aac0a254506d4b86fdffafd2fc02c, type: 2}
   - {fileID: 1979596342420952, guid: 38dbaf30a9153224481d45ad945a1115, type: 2}
@@ -159,7 +160,11 @@ MonoBehaviour:
   - {fileID: 1047487889855952, guid: 33fd3f10571b89c40a973fd95085ffb8, type: 2}
   - {fileID: 1447706779032026, guid: 7557ea450ec95dc43a75cd64541cfe50, type: 2}
   - {fileID: 1401330125982300, guid: 380be501f63ac4e41875c665cdb4db92, type: 2}
+  lightning: {fileID: 0}
   firespeed: 500
+  firerate: 0
+  firedownrate: 0
+  firelightingrate: 0
 --- !u!114 &114243003849539266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,9 +191,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c553fbc5c3f6334cb3b4783b46eb75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 0
+  MovementSpeed: 5
   JumpHeight: 2
+  DistanceToGround: 0.5
   Drag: {x: 0, y: 0, z: 0}
+  IsGround: 0
+  m_velocity: {x: 0, y: 0, z: 0}
+  GroundCheck: 2
+  ProjectileOffset: {x: 0, y: 0}
 --- !u!114 &114780307726018200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,8 +211,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
+  nonstick: {fileID: 0}
+  stick: {fileID: 0}
   movementSpeed: 5
   jumpHeight: 8
+  ground: 0
+  GroundCheck: 2
+  ProjectileOffset: {x: 0, y: 0}
 --- !u!136 &136235160457086020
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -17,14 +17,14 @@ public class PauseMenuLogic : MonoBehaviour {
 
     private GameObject currentKey;
 
-    private GameLogic gameManager;
+    private KeyBinding keybinder;
 
     private Color32 normalButtonColor = new Color32(255, 255, 255, 255);
     private Color32 selectedButtonColor = new Color32(239, 116, 36, 255);
 
     private void Start()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameLogic>();
+        keybinder = GameObject.FindGameObjectWithTag("GameController").GetComponent<KeyBinding>();
     }
 
     void Awake()
@@ -39,21 +39,21 @@ public class PauseMenuLogic : MonoBehaviour {
     {
         if (P1UpText.text == "Button")
         {
-            P1UpText.text = gameManager.keyBindings["Up1"].ToString();
-            P1DownText.text = gameManager.keyBindings["Down1"].ToString();
-            P1LeftText.text = gameManager.keyBindings["Left1"].ToString();
-            P1RightText.text = gameManager.keyBindings["Right1"].ToString();
-            P1JumpText.text = gameManager.keyBindings["Jump1"].ToString();
-            P1FireText.text = gameManager.keyBindings["Fire1"].ToString();
-            P1AltFireText.text = gameManager.keyBindings["AltFire1"].ToString();
+            P1UpText.text = keybinder.keys["Up1"].ToString();
+            P1DownText.text = keybinder.keys["Down1"].ToString();
+            P1LeftText.text = keybinder.keys["Left1"].ToString();
+            P1RightText.text = keybinder.keys["Right1"].ToString();
+            P1JumpText.text = keybinder.keys["Jump1"].ToString();
+            P1FireText.text = keybinder.keys["Fire1"].ToString();
+            P1AltFireText.text = keybinder.keys["AltFire1"].ToString();
 
-            P2UpText.text = gameManager.keyBindings["Up2"].ToString();
-            P2DownText.text = gameManager.keyBindings["Down2"].ToString();
-            P2LeftText.text = gameManager.keyBindings["Left2"].ToString();
-            P2RightText.text = gameManager.keyBindings["Right2"].ToString();
-            P2JumpText.text = gameManager.keyBindings["Jump2"].ToString();
-            P2FireText.text = gameManager.keyBindings["Fire2"].ToString();
-            P2AltFireText.text = gameManager.keyBindings["AltFire2"].ToString();
+            P2UpText.text = keybinder.keys["Up2"].ToString();
+            P2DownText.text = keybinder.keys["Down2"].ToString();
+            P2LeftText.text = keybinder.keys["Left2"].ToString();
+            P2RightText.text = keybinder.keys["Right2"].ToString();
+            P2JumpText.text = keybinder.keys["Jump2"].ToString();
+            P2FireText.text = keybinder.keys["Fire2"].ToString();
+            P2AltFireText.text = keybinder.keys["AltFire2"].ToString();
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -88,7 +88,7 @@ public class PauseMenuLogic : MonoBehaviour {
             Event e = Event.current;
             if (e.isKey)
             {
-                gameManager.keyBindings[currentKey.name] = e.keyCode;
+                keybinder.keys[currentKey.name] = e.keyCode;
                 currentKey.transform.GetChild(0).GetComponent<Text>().text = e.keyCode.ToString();
                 currentKey.GetComponent<Image>().color = normalButtonColor;
                 currentKey = null;
