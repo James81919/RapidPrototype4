@@ -26,10 +26,13 @@ public class Shoot : MonoBehaviour {
     private int playerNum;
     private Vector3 firePointPos;
 
+    private KeyBinding keyBinder;
+
     private void Start()
     {
         playerNum = GetComponent<PlayerMovement>().playerNum;
         firePointPos = firepoint.transform.localPosition;
+        keyBinder = GameObject.FindGameObjectWithTag("GameController").GetComponent<KeyBinding>();
     }
 
     void Fire() {
@@ -63,8 +66,8 @@ public class Shoot : MonoBehaviour {
 
         if (Input.GetKey(key))
         {
-            if (playerNum == 1 && Input.GetKey(KeyCode.S)
-                || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
+            if (playerNum == 1 && Input.GetKeyDown(keyBinder.keys["Down1"])
+                || playerNum == 2 && Input.GetKey(keyBinder.keys["Down2"]))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
                 if (Time.time > firedownrate + lastshotdown) {
@@ -74,8 +77,8 @@ public class Shoot : MonoBehaviour {
                     lastshotdown = Time.time;
                 }
             }
-            else if (playerNum == 1 && Input.GetKey(KeyCode.W)
-                || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
+            else if (playerNum == 1 && Input.GetKey(keyBinder.keys["Up1"])
+                || playerNum == 2 && Input.GetKey(keyBinder.keys["Up2"]))
             {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
                 FireUp();
@@ -90,8 +93,8 @@ public class Shoot : MonoBehaviour {
 
         if (Input.GetKey(effectfire))
         {
-            if (playerNum == 1 && Input.GetKey(KeyCode.S)
-                || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
+            if (playerNum == 1 && Input.GetKey(keyBinder.keys["Down1"])
+                || playerNum == 2 && Input.GetKey(keyBinder.keys["Down2"]))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
                 if (Time.time > firelightingrate + lastlightingshot) {
@@ -100,8 +103,8 @@ public class Shoot : MonoBehaviour {
                     lastlightingshot = Time.time;
                 }
             }
-            else if (playerNum == 1 && Input.GetKey(KeyCode.W)
-                || playerNum == 2 && Input.GetKey(KeyCode.UpArrow))
+            else if (playerNum == 1 && Input.GetKey(keyBinder.keys["Up1"])
+                || playerNum == 2 && Input.GetKey(keyBinder.keys["Up2"]))
             {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
                 if (Time.time > firelightingrate + lastlightingshot)
