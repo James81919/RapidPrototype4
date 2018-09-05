@@ -26,7 +26,6 @@ GameObject:
   - component: {fileID: 114128026149954698}
   - component: {fileID: 136235160457086020}
   - component: {fileID: 135734644810311224}
-  - component: {fileID: 114275933753487196}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -161,24 +160,9 @@ MonoBehaviour:
   - {fileID: 1063875407807206, guid: d7bef38950c85ce4497d599b15b3d7d7, type: 2}
   lightning: {fileID: 1406076070149814, guid: 146d88dfbab5c8f469bda990b69d08ed, type: 2}
   firespeed: 500
-  firerate: 0.1
-  firedownrate: 0.5
-  firelightingrate: 1.5
---- !u!114 &114275933753487196
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1022674125033758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15bee66d3badfcf4ea5ee04e2858993c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_rigidBody: {fileID: 0}
-  timeBeforePulse: 0.3
-  reactionForceHor: 3
-  reactionForceVer: 4
+  firerate: 0
+  firedownrate: 0
+  firelightingrate: 0
 --- !u!114 &114780307726018200
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,8 +175,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerNum: 1
+  nonstick: {fileID: 13400000, guid: fa51e6c2c48000f47a9e70d37ad73047, type: 2}
+  stick: {fileID: 13400000, guid: aef3ecb6aeca88649b668f118db4cd3c, type: 2}
   movementSpeed: 5
   jumpHeight: 8
+  ground: 0
+  GroundCheck: 1
+  ProjectileOffset: {x: 0, y: 0}
 --- !u!135 &135734644810311224
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -211,7 +200,7 @@ CapsuleCollider:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022674125033758}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: fa51e6c2c48000f47a9e70d37ad73047, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5

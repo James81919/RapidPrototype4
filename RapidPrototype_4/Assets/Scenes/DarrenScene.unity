@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44335422, g: 0.4926222, b: 0.5722616, a: 1}
+  m_IndirectSpecularColor: {r: 0.44335487, g: 0.4926228, b: 0.5722628, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -190,9 +190,9 @@ GameObject:
   - component: {fileID: 78291376}
   - component: {fileID: 78291375}
   - component: {fileID: 78291374}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -664,9 +664,9 @@ GameObject:
   - component: {fileID: 956562939}
   - component: {fileID: 956562938}
   - component: {fileID: 956562937}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -960,9 +960,9 @@ GameObject:
   - component: {fileID: 1205953285}
   - component: {fileID: 1205953284}
   - component: {fileID: 1205953283}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1294,9 +1294,9 @@ GameObject:
   - component: {fileID: 1292133955}
   - component: {fileID: 1292133954}
   - component: {fileID: 1292133953}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1922,9 +1922,9 @@ GameObject:
   - component: {fileID: 1851098102}
   - component: {fileID: 1851098101}
   - component: {fileID: 1851098100}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2072,7 +2072,7 @@ Prefab:
     - target: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
         type: 2}
       propertyPath: m_raisingAmount
-      value: 0.005
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a,
         type: 2}
