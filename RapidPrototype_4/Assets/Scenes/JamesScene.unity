@@ -6027,9 +6027,9 @@ MonoBehaviour:
   startText: {fileID: 1996304495}
   player1ScoreText: {fileID: 1744734445}
   player2ScoreText: {fileID: 211419555}
-  player1Prefab: {fileID: 1022674125033758, guid: e755112624b7d3a4e87e59532e60c03c,
+  player1Prefab: {fileID: 1106227723467138, guid: e755112624b7d3a4e87e59532e60c03c,
     type: 2}
-  player2Prefab: {fileID: 1402514758107018, guid: b042f6c0f9607a74cb7e5eb2c22a596e,
+  player2Prefab: {fileID: 1158771448777684, guid: b042f6c0f9607a74cb7e5eb2c22a596e,
     type: 2}
 --- !u!114 &1604054242
 MonoBehaviour:

@@ -139,4 +139,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "water")
+        {
+            FindObjectOfType<PlayerAudio>().PlaySound(6);
+        }
+
+    }
+
+
 }

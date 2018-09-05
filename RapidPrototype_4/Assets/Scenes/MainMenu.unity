@@ -717,6 +717,55 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534038311}
   m_CullTransparentMesh: 0
+--- !u!1 &708824153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 708824155}
+  - component: {fileID: 708824154}
+  m_Layer: 0
+  m_Name: Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &708824154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708824153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa8583f68dcfed4797567d66a0d1f2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_audioClips:
+  - {fileID: 8300000, guid: d2d4e107432b69e43b7dd1e193e1fa99, type: 3}
+  - {fileID: 8300000, guid: 55c267f17134855488398851d57df8a4, type: 3}
+  - {fileID: 8300000, guid: 2b42d6a69778c6943b6b15322e2614d9, type: 3}
+  - {fileID: 8300000, guid: 89e8a849b1abd4a49ac4f23daef1c5a7, type: 3}
+  - {fileID: 8300000, guid: 94f5b25296afa404897503435d9d0caa, type: 3}
+  - {fileID: 8300000, guid: 72c0fe5f13f4c7c4695786aa39a491ab, type: 3}
+  - {fileID: 8300000, guid: 28cf07485f5ca40449dd8a234472ddba, type: 3}
+  m_audioSource: []
+--- !u!4 &708824155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708824153}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.10000038, y: 11.513775, z: -10.42}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718001927
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2476,7 @@ Prefab:
       propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114658725489704556, guid: 1d9d28193ab14174697046fd65ea623a, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 1d9d28193ab14174697046fd65ea623a, type: 2}
   m_IsPrefabAsset: 0

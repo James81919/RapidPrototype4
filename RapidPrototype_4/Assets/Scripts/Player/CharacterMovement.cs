@@ -57,4 +57,5 @@ public class CharacterMovement : MonoBehaviour
         // Process final translate
         m_controller.Move(m_velocity * Time.deltaTime);
     }
+
 }

@@ -38,6 +38,7 @@ public class Shoot : MonoBehaviour {
     void Fire() {
         if(Time.time > firerate + lastshot)
         {
+            FindObjectOfType<PlayerAudio>().PlaySound(3);
             int i = Random.Range(0, objectfire.Length);
             GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
             trash.GetComponent<Rigidbody>().AddForce(-transform.forward * firespeed);
@@ -50,6 +51,7 @@ public class Shoot : MonoBehaviour {
     {
         if (Time.time > firerate + lastshot)
         {
+            FindObjectOfType<PlayerAudio>().PlaySound(3);
             int i = Random.Range(0, objectfire.Length);
             GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
             trash.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
@@ -68,6 +70,7 @@ public class Shoot : MonoBehaviour {
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
                 if (Time.time > firedownrate + lastshotdown) {
+                    FindObjectOfType<PlayerAudio>().PlaySound(3);
                     int i = Random.Range(0, objectfire.Length);
                     GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
                     trash.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
@@ -95,6 +98,7 @@ public class Shoot : MonoBehaviour {
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);
                 if (Time.time > firelightingrate + lastlightingshot) {
+                    FindObjectOfType<PlayerAudio>().PlaySound(5);
                     GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
                     effect.GetComponent<Rigidbody>().AddForce(-transform.up * firespeed);
                     lastlightingshot = Time.time;
@@ -106,6 +110,7 @@ public class Shoot : MonoBehaviour {
                 firepoint.transform.localPosition = new Vector3(1, 1, 0);
                 if (Time.time > firelightingrate + lastlightingshot)
                 {
+                    FindObjectOfType<PlayerAudio>().PlaySound(5);
                     GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
                     effect.GetComponent<Rigidbody>().AddForce((transform.up + transform.right) * firespeed);
                     lastlightingshot = Time.time;
@@ -116,6 +121,7 @@ public class Shoot : MonoBehaviour {
                 firepoint.transform.localPosition = firePointPos;
                 if (Time.time > firelightingrate + lastlightingshot)
                 {
+                    FindObjectOfType<PlayerAudio>().PlaySound(5);
                     GameObject effect = Instantiate(lightning, firepoint.transform.position, Quaternion.identity) as GameObject;
                     effect.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
                     lastlightingshot = Time.time;
