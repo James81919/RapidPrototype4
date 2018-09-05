@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour {
     public float GroundCheck = 1;
     public Vector2 ProjectileOffset;
 
+    private KeyBinding keyBinder;
+
     Vector3 GetProjectilePosition()
     {
         Vector3 currentPos = this.transform.position;
@@ -63,6 +65,7 @@ public class PlayerMovement : MonoBehaviour {
     void Start()
     {
         rgb = GetComponent<Rigidbody>();
+        keyBinder = GameObject.FindGameObjectWithTag("GameController").GetComponent<KeyBinding>();
     }
 
 	void FixedUpdate ()
@@ -76,7 +79,7 @@ public class PlayerMovement : MonoBehaviour {
                 horizontalInput = Input.GetAxis("Horizontal") * movementSpeed;
 
                 // Jumping
-                if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
+                if (Input.GetKeyDown(keyBinder.keys["Jump1"]) && IsGrounded())
                 {
                     rgb.AddForce(0.0f, jumpHeight * 1.0f, 0.0f, ForceMode.Impulse);
                     //rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
@@ -90,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
                 horizontalInput = Input.GetAxis("Horizontal2") * movementSpeed;
 
                 // Jumping
-                if (Input.GetKeyDown(KeyCode.Keypad0) && IsGrounded())
+                if (Input.GetKeyDown(keyBinder.keys["Jump2"]) && IsGrounded())
                 {
                     rgb.AddForce(0.0f, jumpHeight * 1.0f, 0.0f, ForceMode.Impulse);
                     //rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
@@ -120,11 +123,11 @@ public class PlayerMovement : MonoBehaviour {
         // Rotate player
         if (horizontalInput >= 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, -90, 0);
         }
         else
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 90, 0);
         }
 
         //Check wall collision

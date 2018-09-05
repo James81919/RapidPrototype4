@@ -13,6 +13,9 @@ public class Water : MonoBehaviour
     [SerializeField]
     private bool m_shouldRaised;
 
+    public GameObject waterFlow1;
+    public GameObject waterFlow2;
+
     public Vector3 StartingLocation
     { 
         get { return m_startingLocation; }
@@ -43,7 +46,6 @@ public class Water : MonoBehaviour
 
         // Make sure the raising ability is disabled at the begining
         m_shouldRaised = false;
-
     }
 	
 	void Update ()
@@ -52,6 +54,17 @@ public class Water : MonoBehaviour
         //{
         //    StartCoroutine("ResetWaterLevel");
         //}
+
+        if (m_shouldRaised)
+        {
+            waterFlow1.SetActive(true);
+            waterFlow2.SetActive(true);
+        }
+        else
+        {
+            waterFlow1.SetActive(false);
+            waterFlow2.SetActive(false);
+        }
     }
 
     private void FixedUpdate()
