@@ -77,7 +77,7 @@ public class GameLogic : MonoBehaviour {
         }
         else
         {
-            if (water.transform.Find("WaterTop").position.y > player1_GO.transform.position.y + 0.1f)
+            if (water.transform.Find("WaterTop").position.y > player1_GO.transform.position.y + 1.6f)
             {
                 // Player 1 death
                 if (player1_GO.transform.position.y != player2_GO.transform.position.y)
@@ -86,7 +86,7 @@ public class GameLogic : MonoBehaviour {
                 }
                 Restart();
             }
-            if (water.transform.Find("WaterTop").position.y > player2_GO.transform.position.y + 0.1f)
+            if (water.transform.Find("WaterTop").position.y > player2_GO.transform.position.y + 1.6f)
             {
                 // Player 2 death
                 if (player1_GO.transform.position.y != player2_GO.transform.position.y)
