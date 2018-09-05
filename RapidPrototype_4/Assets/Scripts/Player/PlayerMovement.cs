@@ -123,11 +123,11 @@ public class PlayerMovement : MonoBehaviour {
         // Rotate player
         if (horizontalInput >= 0)
         {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            transform.eulerAngles = new Vector3(0, -90, 0);
         }
         else
         {
-            transform.eulerAngles = new Vector3(0, 180, 0);
+            transform.eulerAngles = new Vector3(0, 90, 0);
         }
 
         //Check wall collision

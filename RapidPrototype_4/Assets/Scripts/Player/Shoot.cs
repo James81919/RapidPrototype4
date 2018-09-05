@@ -40,7 +40,7 @@ public class Shoot : MonoBehaviour {
         {
             int i = Random.Range(0, objectfire.Length);
             GameObject trash = Instantiate(objectfire[i], firepoint.transform.position, Quaternion.identity) as GameObject;
-            trash.GetComponent<Rigidbody>().AddForce(transform.right * firespeed);
+            trash.GetComponent<Rigidbody>().AddForce(-transform.forward * firespeed);
             lastshot = Time.time;
         }
 
@@ -63,7 +63,7 @@ public class Shoot : MonoBehaviour {
     {
         if (Input.GetKey(key))
         {
-            if (playerNum == 1 && Input.GetKeyDown(KeyCode.S)
+            if (playerNum == 1 && Input.GetKey(KeyCode.S)
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
                 firepoint.transform.localPosition = new Vector3(0, -1, 0);

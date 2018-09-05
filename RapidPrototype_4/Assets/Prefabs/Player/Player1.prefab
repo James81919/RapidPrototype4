@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 33068074741522688}
   - component: {fileID: 23595156920295996}
   - component: {fileID: 54501125185356672}
-  - component: {fileID: 114780307726018200}
   - component: {fileID: 114128026149954698}
+  - component: {fileID: 114780307726018200}
   - component: {fileID: 136235160457086020}
   - component: {fileID: 135734644810311224}
   m_Layer: 0
@@ -54,9 +54,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1704405313658946}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.7, z: -1.04}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_Children: []
   m_Father: {fileID: 4920006599072692}
   m_RootOrder: 0
@@ -67,14 +67,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022674125033758}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: 2, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 2.18, y: 3.19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4499373721009200}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &23595156920295996
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -90,7 +90,8 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 87e4a525d647244449c173c2648d2e16, type: 2}
+  - {fileID: 2100000, guid: 4fc93c25f3fdb1048a5103528105c0c2, type: 2}
+  - {fileID: 2100000, guid: 4fc93c25f3fdb1048a5103528105c0c2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -116,7 +117,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022674125033758}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 0219f55758b4851438e4c69cbff42341, type: 3}
 --- !u!54 &54501125185356672
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -180,7 +181,7 @@ MonoBehaviour:
   movementSpeed: 5
   jumpHeight: 8
   ground: 0
-  GroundCheck: 1
+  GroundCheck: 2
   ProjectileOffset: {x: 0, y: 0}
 --- !u!135 &135734644810311224
 SphereCollider:
@@ -193,7 +194,7 @@ SphereCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
-  m_Center: {x: 0, y: -0.56, z: 0}
+  m_Center: {x: 0, y: 0.35, z: 0}
 --- !u!136 &136235160457086020
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -203,7 +204,7 @@ CapsuleCollider:
   m_Material: {fileID: 13400000, guid: fa51e6c2c48000f47a9e70d37ad73047, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
+  m_Radius: 0.85
+  m_Height: 0.81
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.76, z: 0}
