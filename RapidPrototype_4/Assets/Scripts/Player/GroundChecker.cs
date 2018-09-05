@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class GroundChecker : MonoBehaviour
 {
-    private CharacterMovement character;
-
+    public CharacterMovement character;
 
     private void Awake()
     {

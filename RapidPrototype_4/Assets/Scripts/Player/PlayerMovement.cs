@@ -6,12 +6,59 @@ using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour {
 
     public int playerNum;
-
+    public PhysicMaterial nonstick;
+    public PhysicMaterial stick;
     public float movementSpeed;
     public float jumpHeight;
-
+    public bool ground;
     private Rigidbody rgb;
-    private bool isGrounded;
+    public float GroundCheck = 1;
+    public Vector2 ProjectileOffset;
+
+    Vector3 GetProjectilePosition()
+    {
+        Vector3 currentPos = this.transform.position;
+        Vector3 scale = this.transform.localScale;
+        Vector3 offset = new Vector3(ProjectileOffset.x * scale.x, ProjectileOffset.y, 0);
+        Vector3 projOffset = currentPos + offset;
+        return projOffset;
+    }
+
+    void OnDrawGizmos()
+    {
+        Vector3 currentPos = this.transform.position;
+        Vector3 groundCheckPos = currentPos + Vector3.down * GroundCheck;
+        Gizmos.DrawLine(currentPos, groundCheckPos);
+
+        Vector3 projOffset = GetProjectilePosition();
+        Gizmos.DrawWireSphere(projOffset, 0.1f);
+    }
+    bool IsGrounded()
+    {
+        this.GetComponent<CapsuleCollider>().material = nonstick;
+        bool grounded = false;
+        Vector3 currentPos = this.transform.position;
+        RaycastHit[] hit = Physics.RaycastAll(currentPos, Vector3.down);
+        int otherplayer;
+        if (playerNum == 1) {
+            otherplayer = 2;
+        }
+        else
+        {
+            otherplayer = 1;
+        }
+        
+        foreach (var h in hit)
+        {
+            if (h.collider.tag == "Ground" && h.distance <= 1 || h.collider.tag == "Trash" && h.distance <= 1 || h.collider.tag == "Player"+(otherplayer) && h.distance <= 1)
+            {
+                this.GetComponent<CapsuleCollider>().material = stick;
+                grounded = true;
+            }
+        }
+        return grounded;
+    }
+
 
     void Start()
     {
@@ -21,7 +68,7 @@ public class PlayerMovement : MonoBehaviour {
 	void FixedUpdate ()
     {
         float horizontalInput = 0;
-
+        ground = IsGrounded();
         switch (playerNum)
         {
             case 1:
@@ -29,11 +76,11 @@ public class PlayerMovement : MonoBehaviour {
                 horizontalInput = Input.GetAxis("Horizontal") * movementSpeed;
 
                 // Jumping
-                if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+                if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
                 {
                     rgb.AddForce(0.0f, jumpHeight * 1.0f, 0.0f, ForceMode.Impulse);
                     //rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                    isGrounded = false;
+                    //isGrounded = false;
                 }
 
                 break;
@@ -43,11 +90,11 @@ public class PlayerMovement : MonoBehaviour {
                 horizontalInput = Input.GetAxis("Horizontal2") * movementSpeed;
 
                 // Jumping
-                if (Input.GetKeyDown(KeyCode.Keypad0) && isGrounded)
+                if (Input.GetKeyDown(KeyCode.Keypad0) && IsGrounded())
                 {
                     rgb.AddForce(0.0f, jumpHeight * 1.0f, 0.0f, ForceMode.Impulse);
                     //rgb.velocity = new Vector3(rgb.velocity.x, jumpHeight, rgb.velocity.z);
-                    isGrounded = false;
+                    //isGrounded = false;
                 }
 
                 break;
@@ -65,7 +112,7 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         // Aplly extra gravity on falling to create realistic effect
-        if (!isGrounded && rgb.velocity.y < 0)
+        if (!IsGrounded() && rgb.velocity.y < 0)
         {
             rgb.AddForce(Physics.gravity, ForceMode.Acceleration);
         }
@@ -80,21 +127,13 @@ public class PlayerMovement : MonoBehaviour {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
-        // Check wall collision
-//         RaycastHit hit;
-//         if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
-//         {
-//             rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
-//         }
+        //Check wall collision
+        //RaycastHit hit;
+        //if (rgb.SweepTest(rgb.velocity, out hit, rgb.velocity.magnitude * Time.deltaTime))
+        //{
+        //    rgb.velocity = new Vector3(0, rgb.velocity.y, 0);
+        //}
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        isGrounded = true;
-    }
 
-    void OnTriggerExit(Collider other)
-    {
-        isGrounded = false;
-    }
 }
