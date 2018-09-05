@@ -160,6 +160,9 @@ MonoBehaviour:
   - {fileID: 1063875407807206, guid: d7bef38950c85ce4497d599b15b3d7d7, type: 2}
   lightning: {fileID: 1406076070149814, guid: 146d88dfbab5c8f469bda990b69d08ed, type: 2}
   firespeed: 500
+  firerate: 0.5
+  firedownrate: 1
+  firelightingrate: 1.5
 --- !u!114 &114780307726018200
 MonoBehaviour:
   m_ObjectHideFlags: 1
