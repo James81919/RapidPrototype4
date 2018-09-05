@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestoryTrash : MonoBehaviour {
-    public GameObject orginobject;
+public class DestroyTrash : MonoBehaviour {
 
+    public GameObject orginobject;
 
     void delete()
     {
@@ -13,9 +13,7 @@ public class DestoryTrash : MonoBehaviour {
 
     void FixedUpdate()
     {
-
-            Invoke("delete", 1f);
-
+        Invoke("delete", 1f);
     }
 
     void OnTriggerStay(Collider other)
@@ -25,6 +23,5 @@ public class DestoryTrash : MonoBehaviour {
             Destroy(other.gameObject);
 
         }
-
     }
 }
