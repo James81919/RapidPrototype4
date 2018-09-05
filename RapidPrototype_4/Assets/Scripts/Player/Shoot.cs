@@ -68,7 +68,7 @@ public class Shoot : MonoBehaviour {
             if (playerNum == 1 && Input.GetKey(KeyCode.S)
                 || playerNum == 2 && Input.GetKey(KeyCode.DownArrow))
             {
-                firepoint.transform.localPosition = new Vector3(0, -1, 0);
+                firepoint.transform.localPosition = new Vector3(0, 0, 0);
                 if (Time.time > firedownrate + lastshotdown) {
                     FindObjectOfType<PlayerAudio>().PlaySound(3);
                     int i = Random.Range(0, objectfire.Length);
