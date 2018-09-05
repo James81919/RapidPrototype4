@@ -99,11 +99,6 @@ public class GameLogic : MonoBehaviour {
 
         player1ScoreText.text = Player1Score.ToString();
         player2ScoreText.text = Player2Score.ToString();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
     }
 
     private void Restart()
