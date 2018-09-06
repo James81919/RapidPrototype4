@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody rgb;
     public float GroundCheck = 1;
     public Vector2 ProjectileOffset;
+    
 
     private KeyBinding keyBinder;
 
@@ -141,7 +142,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "water")
+        if (other.tag == "Water")
         {
             FindObjectOfType<PlayerAudio>().PlaySound(6);
         }
