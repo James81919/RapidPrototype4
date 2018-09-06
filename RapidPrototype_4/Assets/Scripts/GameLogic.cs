@@ -19,6 +19,8 @@ public class GameLogic : MonoBehaviour {
     public GameObject startText;
     public Text player1ScoreText;
     public Text player2ScoreText;
+    public Image player1WinsText;
+    public Image player2WinsText;
 
     [Header("Prefabs")]
     [SerializeField]
@@ -48,6 +50,9 @@ public class GameLogic : MonoBehaviour {
         Player2Score = 0;
         player1_GO = Instantiate(player1Prefab, player1Spawner.position, player1Spawner.rotation);
         player2_GO = Instantiate(player2Prefab, player2Spawner.position, player2Spawner.rotation);
+
+        player1WinsText.enabled = false;
+        player2WinsText.enabled = false;
     }
 
     private void Update()
@@ -73,25 +78,31 @@ public class GameLogic : MonoBehaviour {
                 player2_GO = Instantiate(player2Prefab, player2Spawner.position, player2Spawner.rotation);
                 water.ShouldRaised = true;
                 restarting = false;
+                player1WinsText.enabled = false;
+                player2WinsText.enabled = false;
             }
         }
         else
         {
-            if (water.transform.Find("WaterTop").position.y > player1_GO.transform.position.y + 1.6f)
+            if (water.transform.Find("WaterTop").position.y > player1_GO.transform.position.y + 1.4f)
             {
                 // Player 1 death
                 if (player1_GO.transform.position.y != player2_GO.transform.position.y)
                 {
                     Player2Score++;
+                    player2WinsText.enabled = true;
+                    player1WinsText.enabled = false;
                 }
                 Restart();
             }
-            if (water.transform.Find("WaterTop").position.y > player2_GO.transform.position.y + 1.6f)
+            if (water.transform.Find("WaterTop").position.y > player2_GO.transform.position.y + 1.4f)
             {
                 // Player 2 death
                 if (player1_GO.transform.position.y != player2_GO.transform.position.y)
                 {
                     Player1Score++;
+                    player1WinsText.enabled = true;
+                    player2WinsText.enabled = false;
                 }
                 Restart();
             }
