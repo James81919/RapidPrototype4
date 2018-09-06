@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameLogic : MonoBehaviour {
@@ -28,6 +29,11 @@ public class GameLogic : MonoBehaviour {
     [SerializeField]
     private GameObject player2Prefab;
 
+    [Header("GameOver UI")]
+    public Canvas gameOverCanvas;
+    public Image player1WinsGameOver;
+    public Image player2WinsGameOver;
+
     private bool hasStarted;
 
     private int Player1Score;
@@ -53,10 +59,30 @@ public class GameLogic : MonoBehaviour {
 
         player1WinsText.enabled = false;
         player2WinsText.enabled = false;
+
+        gameOverCanvas.enabled = false;
     }
 
     private void Update()
     {
+        if (Player1Score >= maxScore || Player2Score >= maxScore)
+        {
+            Time.timeScale = 0;
+            gameOverCanvas.enabled = true;
+            if (Player1Score > Player2Score)
+            {
+                player1WinsGameOver.enabled = true;
+                player2WinsGameOver.enabled = false;
+            }
+            else
+            {
+                player1WinsGameOver.enabled = false;
+                player2WinsGameOver.enabled = true;
+            }
+
+            return;
+        }
+
         if (!hasStarted)
         {
             Time.timeScale = 0;
@@ -125,5 +151,10 @@ public class GameLogic : MonoBehaviour {
         StartCoroutine(water.ResetWaterLevel());
 
         restarting = true;
+    }
+
+    public void Button_GameOver_Back()
+    {
+        SceneManager.LoadScene(0);
     }
 }
