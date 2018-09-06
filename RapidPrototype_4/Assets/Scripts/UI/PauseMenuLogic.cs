@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseMenuLogic : MonoBehaviour {
@@ -121,7 +122,7 @@ public class PauseMenuLogic : MonoBehaviour {
 
     public void Button_Pause_Quit()
     {
-
+        SceneManager.LoadScene(0);
     }
 
     public void Button_Pause_QuitToDesktop()
