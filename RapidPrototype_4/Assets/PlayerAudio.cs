@@ -31,8 +31,9 @@ public class PlayerAudio : MonoBehaviour
         }
 
         m_audioSource[0].loop = true;
-        m_audioSource[1].loop = false;
+        m_audioSource[1].loop = true;
         m_audioSource[0].Play();
+        m_audioSource[1].Play();
     }
 
     public void PlaySound(int _index)

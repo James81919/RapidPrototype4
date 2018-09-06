@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Shoot : MonoBehaviour {
@@ -28,11 +29,22 @@ public class Shoot : MonoBehaviour {
 
     private KeyBinding keyBinder;
 
+    public Slider AltfireUI;
+
     private void Start()
     {
         playerNum = GetComponent<PlayerMovement>().playerNum;
         firePointPos = firepoint.transform.localPosition;
         keyBinder = GameObject.FindGameObjectWithTag("GameController").GetComponent<KeyBinding>();
+        if (playerNum == 1) {
+            AltfireUI = GameObject.FindGameObjectWithTag("Player1UI").GetComponent<Slider>();
+        }
+        else if (playerNum == 2)
+        {
+            AltfireUI = GameObject.FindGameObjectWithTag("Player2UI").GetComponent<Slider>();
+        }
+
+        AltfireUI.maxValue = firelightingrate;
     }
 
     void Fire() {
@@ -63,6 +75,9 @@ public class Shoot : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+
+        AltfireUI.value = Time.time - lastlightingshot;
+
         if (Input.GetKeyDown(key))
         {
             if (playerNum == 1 && Input.GetKey(KeyCode.S)

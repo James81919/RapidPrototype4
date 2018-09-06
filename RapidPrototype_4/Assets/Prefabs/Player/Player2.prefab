@@ -535,6 +535,8 @@ MonoBehaviour:
   firerate: 0
   firedownrate: 0.1
   firelightingrate: 1.5
+  AltfireUI: {fileID: 114537410527899098, guid: 5e7376ffde538e94c99d4e1ce7d86311,
+    type: 2}
 --- !u!135 &135946949668221468
 SphereCollider:
   m_ObjectHideFlags: 1
